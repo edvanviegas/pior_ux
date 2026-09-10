@@ -1,58 +1,146 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 
 <body>
 
-    <div class="caixa cadastro">
+<div class="topo">
 
-        <h1>Cadastro Simples</h1>
+    <h1>CADASTRO</h1>
 
-        <p class="explicacao">
-            Preencha os campos abaixo. Alguns podem não ser necessários.
-        </p>
+    <div class="progresso">
+        Etapa 2 de 4
+    </div>
 
-        {% if erro %}
-            <div class="erro">
-                {{ erro }}
-            </div>
-        {% endif %}
+</div>
 
-        <form method="POST">
+<div class="caixa">
 
-            <label>Nome que você gostaria de usar:</label>
-            <input type="text" name="nome">
+    <h2>Informações extremamente necessárias</h2>
 
-            <label>Seu endereço eletrônico:</label>
-            <input type="email" name="email">
+    {% if erros %}
 
-            <label>Senha secreta obrigatoriamente opcional:</label>
-            <input type="password" name="senha">
+        <div class="erro">
 
-            <p class="aviso">
-                A senha deve possuir pelo menos 8 caracteres.
-                Ou não.
+            <h3>SUCESSO!</h3>
+
+            <p>
+                Seu cadastro apresentou alguns pequenos problemas:
             </p>
 
-            <div class="botoes">
+            <ul>
 
-                <a href="{{ url_for('inicio') }}" class="cancelar">
-                    CANCELAR
-                </a>
+                {% for erro in erros %}
+                    <li>{{ erro }}</li>
+                {% endfor %}
 
-                <button type="submit" class="avancar">
-                    talvez continuar
-                </button>
+            </ul>
 
-            </div>
+        </div>
 
-        </form>
+    {% endif %}
 
-    </div>
+    <form method="POST" onsubmit="return verificarFormulario()">
+
+        <label>
+            Nome completo que representa você:
+        </label>
+
+        <input
+            type="text"
+            name="nome"
+            value="{{ nome or '' }}"
+            placeholder="Digite aqui...">
+
+        <label>
+            Endereço eletrônico digital:
+        </label>
+
+        <input
+            type="email"
+            name="email"
+            value="{{ email or '' }}"
+            placeholder="exemplo@exemplo.com">
+
+        <label>
+            Idade aproximada:
+        </label>
+
+        <input
+            type="number"
+            name="idade"
+            value="{{ idade or '' }}">
+
+        <label>
+            Cidade onde você atualmente se encontra:
+        </label>
+
+        <select name="cidade">
+
+            <option value="">Escolha uma opção</option>
+            <option value="Ariquemes">Ariquemes</option>
+            <option value="Porto Velho">Porto Velho</option>
+            <option value="Ji-Paraná">Ji-Paraná</option>
+            <option value="Outra">Outra</option>
+
+        </select>
+
+        <label>
+            Senha secreta pública:
+        </label>
+
+        <input
+            type="password"
+            name="senha"
+            id="senha"
+            placeholder="Não compartilhe sua senha">
+
+        <div class="regras">
+
+            <p>A senha deve:</p>
+
+            <ul>
+                <li>Ter pelo menos 8 caracteres</li>
+                <li>Ter uma letra maiúscula</li>
+                <li>Ter uma letra minúscula</li>
+                <li>Ter um número</li>
+                <li>Não ser muito segura</li>
+            </ul>
+
+        </div>
+
+        <label class="checkbox">
+
+            <input type="checkbox" id="termos">
+
+            Eu li os termos que não li.
+
+        </label>
+
+        <div class="botoes">
+
+            <a href="{{ url_for('inicio') }}" class="cancelar">
+                CANCELAR
+            </a>
+
+            <button type="submit" class="avancar">
+                continuar talvez
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
 
 </body>
 </html>

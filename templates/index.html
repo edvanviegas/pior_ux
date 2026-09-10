@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Site Muito Bom</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cadastro Incrivelmente Simples</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <div class="caixa">
-        <h1>Bem-vindo!</h1>
+<div class="topo">
+    <h1>CADASTRO SUPER FÁCIL</h1>
 
-        <p>
-            Este é um site extremamente fácil de usar.
-            Provavelmente.
-        </p>
-
-        <a href="{{ url_for('cadastro') }}" class="botao-avancar">
-            Começar
-        </a>
+    <div class="progresso">
+        Etapa 1 de 4
     </div>
+</div>
+
+<div class="caixa">
+
+    <h2>Olá, usuário!</h2>
+
+    <p>
+        Você está prestes a realizar um cadastro extremamente simples.
+    </p>
+
+    <p class="pequeno">
+        O processo possui apenas algumas pequenas etapas.
+        Talvez.
+    </p>
+
+    <div class="aviso">
+        ATENÇÃO: leia tudo cuidadosamente antes de continuar.
+    </div>
+
+    <a href="{{ url_for('cadastro') }}" class="botao-principal">
+        CONTINUAR
+    </a>
+
+    <button class="botao-inutil" onclick="alert('Você clicou no botão errado.')">
+        NÃO CONTINUAR
+    </button>
+
+</div>
 
 </body>
 </html>
