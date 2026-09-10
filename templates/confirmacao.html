@@ -2,14 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
     <title>Confirmação</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
@@ -26,34 +24,54 @@
 
 <div class="caixa confirmacao">
 
-    <h2>Quase terminando!</h2>
+    <h2>Confira seus dados</h2>
 
     <p>
-        Seu cadastro foi provavelmente realizado.
+        Antes de continuar, veja se alguma informação está errada.
     </p>
+
+    <div class="resumo">
+
+        <p>
+            <strong>Nome:</strong>
+            {{ cadastro.nome }}
+        </p>
+
+        <p>
+            <strong>E-mail:</strong>
+            {{ cadastro.email }}
+        </p>
+
+        <p>
+            <strong>Idade:</strong>
+            {{ cadastro.idade }}
+        </p>
+
+        <p>
+            <strong>Cidade:</strong>
+            {{ cadastro.cidade }}
+        </p>
+
+    </div>
 
     <div class="alerta-amarelo">
 
         <strong>IMPORTANTE:</strong>
 
         <p>
-            Se você chegou até esta tela, não faça nada.
-        </p>
-
-        <p>
-            Ou talvez faça.
+            Se alguma informação estiver errada,
+            você pode voltar e corrigir.
         </p>
 
     </div>
 
     <form method="POST">
 
-        <label>
+        <label class="checkbox">
 
-            <input type="checkbox">
+            <input type="checkbox" required>
 
-            Confirmo que desejo continuar mesmo sem saber
-            exatamente o que estou confirmando.
+            Confirmo que os dados estão corretos.
 
         </label>
 
@@ -66,7 +84,7 @@
     </form>
 
     <a href="{{ url_for('cadastro') }}" class="voltar">
-        ← Voltar e preencher tudo novamente
+        ← Voltar e corrigir os dados
     </a>
 
 </div>

@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = "chave-do-projeto-pior-ux"
 
 
 @app.route("/")
@@ -10,6 +11,7 @@ def inicio():
 
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
+
     if request.method == "POST":
 
         nome = request.form.get("nome")
@@ -24,19 +26,35 @@ def cadastro():
             erros.append("O nome aparentemente decidiu não existir.")
 
         if not email:
-            erros.append("O endereço eletrônico é obrigatório, provavelmente.")
+            erros.append("O endereço eletrônico é obrigatório.")
 
         if not idade:
-            erros.append("Precisamos saber sua idade para continuar.")
-
-        if not senha:
-            erros.append("A senha está vazia. Isso parece inseguro.")
-
-        if len(senha) < 8:
-            erros.append("A senha precisa ter pelo menos 8 caracteres.")
+            erros.append("Precisamos saber sua idade.")
 
         if not cidade:
-            erros.append("A cidade é obrigatória porque o formulário decidiu.")
+            erros.append("A cidade é obrigatória.")
+
+        # SENHA MAIS DIFÍCIL
+        if not senha:
+            erros.append("A senha está vazia. Isso parece uma péssima ideia.")
+
+        else:
+            if len(senha) < 10:
+                erros.append("A senha precisa ter pelo menos 10 caracteres.")
+
+            if not any(c.isupper() for c in senha):
+                erros.append("A senha precisa ter uma letra MAIÚSCULA.")
+
+            if not any(c.islower() for c in senha):
+                erros.append("A senha precisa ter uma letra minúscula.")
+
+            if not any(c.isdigit() for c in senha):
+                erros.append("A senha precisa ter pelo menos um número.")
+
+            if not any(c in "!@#$%&*" for c in senha):
+                erros.append(
+                    "A senha precisa ter um caractere especial: ! @ # $ % & *"
+                )
 
         if erros:
             return render_template(
@@ -48,6 +66,14 @@ def cadastro():
                 cidade=cidade
             )
 
+        # Guardamos os dados temporariamente para a confirmação
+        session["cadastro"] = {
+            "nome": nome,
+            "email": email,
+            "idade": idade,
+            "cidade": cidade
+        }
+
         return redirect(url_for("confirmacao"))
 
     return render_template("cadastro.html", erros=[])
@@ -56,10 +82,18 @@ def cadastro():
 @app.route("/confirmacao", methods=["GET", "POST"])
 def confirmacao():
 
+    cadastro = session.get("cadastro")
+
+    if not cadastro:
+        return redirect(url_for("cadastro"))
+
     if request.method == "POST":
         return redirect(url_for("final"))
 
-    return render_template("confirmacao.html")
+    return render_template(
+        "confirmacao.html",
+        cadastro=cadastro
+    )
 
 
 @app.route("/final")

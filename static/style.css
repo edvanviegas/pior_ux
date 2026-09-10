@@ -1,40 +1,120 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
+    color: #999;
+}
+
+.topo {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.topo h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.progresso {
+    margin-top: 10px;
+    color: #777;
+    font-size: 13px;
 }
 
 .caixa {
-    width: 500px;
-    margin: 100px auto;
-    padding: 30px;
-    border: 3px solid black;
-    background-color: #eeeeee;
+    width: 550px;
+    margin: 50px auto;
+    padding: 35px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 15px #ddd;
 }
 
-h1 {
-    color: #777777;
+.caixa h2 {
+    color: #777;
 }
 
-p {
-    color: #999999;
+.caixa p {
+    line-height: 1.5;
+}
+
+.pequeno {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.aviso {
+    margin: 25px 0;
+    padding: 15px;
+    background-color: #ffffaa;
+    border: 2px solid #ffcc00;
+    color: #888;
+}
+
+.botao-principal {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao-inutil {
+    margin-left: 20px;
+    padding: 15px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 label {
     display: block;
-    margin-top: 20px;
-    color: #aaaaaa;
+    margin-top: 22px;
+    color: #aaa;
+    font-size: 14px;
 }
 
-input {
-    width: 95%;
+input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 7px;
+    border: 1px solid #ccc;
+}
+
+.checkbox {
+    color: #999;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+.regras {
+    margin-top: 10px;
+    background-color: #fafafa;
     padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #cccccc;
+    font-size: 12px;
+}
+
+.erro {
+    background-color: #ffff99;
+    border: 2px solid orange;
+    padding: 15px;
+    color: #cc0000;
+}
+
+.erro h3 {
+    color: green;
 }
 
 .botoes {
-    margin-top: 30px;
+    margin-top: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,30 +123,38 @@ input {
 .cancelar {
     background-color: red;
     color: white;
-    padding: 15px 25px;
+    padding: 18px 25px;
     text-decoration: none;
     font-weight: bold;
 }
 
 .avancar {
-    background-color: #dddddd;
-    color: #bbbbbb;
-    border: 1px solid #eeeeee;
-    padding: 8px 12px;
+    background-color: #ddd;
+    color: #aaa;
+    border: 1px solid #eee;
+    padding: 10px 15px;
     cursor: pointer;
 }
 
-.aviso {
-    font-size: 12px;
-    color: #bbbbbb;
+.alerta-amarelo {
+    background-color: #ffff99;
+    border: 2px solid #ffcc00;
+    padding: 20px;
+    margin: 25px 0;
 }
 
-.erro {
-    background-color: #ffff99;
-    border: 2px solid orange;
-    padding: 10px;
-    color: #cc0000;
-    margin: 15px 0;
+.botao-confuso {
+    background-color: #ccc;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+.voltar {
+    display: block;
+    margin-top: 30px;
+    color: #bbb;
 }
 
 .final {
@@ -75,13 +163,42 @@ input {
 
 .final h1 {
     color: green;
+    font-size: 40px;
 }
 
-.botao-avancar {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 25px;
-    background-color: #444444;
-    color: white;
-    text-decoration: none;
+.trofeu {
+    font-size: 70px;
+    color: gold;
+}
+
+.resultado {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #eee;
+    text-align: left;
+}
+.resumo {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+}
+
+.resumo p {
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.resumo strong {
+    color: #444;
+}
+
+.confirmacao .checkbox {
+    color: #777;
+    font-size: 14px;
+}
+
+.confirmacao .checkbox input {
+    width: auto;
 }
