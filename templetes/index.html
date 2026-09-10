@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Muito Bom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="caixa">
+        <h1>Bem-vindo!</h1>
+
+        <p>
+            Este é um site extremamente fácil de usar.
+            Provavelmente.
+        </p>
+
+        <a href="{{ url_for('cadastro') }}" class="botao-avancar">
+            Começar
+        </a>
+    </div>
+
+</body>
+</html>
