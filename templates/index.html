@@ -2,49 +2,144 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Cadastro Incrivelmente Simples</title>
+
+    <title>Cadastro Oficial Definitivo Final</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<div class="topo">
-    <h1>CADASTRO SUPER FÁCIL</h1>
+<div class="barra-caotica">
 
-    <div class="progresso">
-        Etapa 1 de 4
-    </div>
+    <span>🔴 SISTEMA ONLINE</span>
+    <span>USUÁRIO: NÃO IDENTIFICADO</span>
+    <span>STATUS: PROVAVELMENTE OK</span>
+    <span>ERROS: 0</span>
+
 </div>
 
-<div class="caixa">
 
-    <h2>Olá, usuário!</h2>
+<div class="menu">
 
-    <p>
-        Você está prestes a realizar um cadastro extremamente simples.
-    </p>
+    <a href="#">INÍCIO</a>
+    <a href="#">SOBRE</a>
+    <a href="#">AJUDA</a>
+    <a href="#">AJUDA 2</a>
+    <a href="#">CONFIGURAÇÕES</a>
+    <a href="#">CONFIGURAÇÕES AVANÇADAS</a>
 
-    <p class="pequeno">
-        O processo possui apenas algumas pequenas etapas.
-        Talvez.
-    </p>
+</div>
 
-    <div class="aviso">
-        ATENÇÃO: leia tudo cuidadosamente antes de continuar.
+
+<div class="caixa-principal">
+
+    <div class="alerta-vermelho">
+
+        ⚠ ATENÇÃO ⚠
+
+        <br>
+
+        Este sistema é simples.
+
+        <br>
+
+        Caso alguma coisa dê errado,
+        provavelmente foi culpa sua.
+
     </div>
 
-    <a href="{{ url_for('cadastro') }}" class="botao-principal">
+
+    <h1>
+        CADASTRO DE USUÁRIO
+    </h1>
+
+    <h2>
+        Cadastro simples, rápido e fácil*
+    </h2>
+
+    <p class="texto-pequeno">
+        *Termos "simples", "rápido" e "fácil" podem não representar
+        exatamente a experiência oferecida.
+    </p>
+
+
+    <div class="propaganda">
+
+        🔥 VOCÊ FOI SELECIONADO! 🔥
+
+        <br>
+
+        Parabéns por chegar nesta página!
+
+        <br>
+
+        <button onclick="alert('Você realmente clicou nisso?')">
+            CLIQUE AQUI PARA NÃO GANHAR NADA
+        </button>
+
+    </div>
+
+
+    <div class="progresso">
+
+        ETAPA 1 / 17
+
+        <div class="barra">
+
+            <div class="barra-interna"></div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('cadastro') }}"
+        class="botao-gigante">
+
         CONTINUAR
+
     </a>
 
-    <button class="botao-inutil" onclick="alert('Você clicou no botão errado.')">
-        NÃO CONTINUAR
+
+    <button
+        class="botao-vermelho"
+        onclick="alert('Você não deveria ter clicado aqui.')">
+
+        CANCELAR TUDO
+
     </button>
+
+
+    <div class="rodape-caotico">
+
+        Última atualização: ontem às 03:42
+
+        |
+
+        Sistema versão 0.0.0.7
+
+        |
+
+        Não atualize a página
+
+        |
+
+        Não feche a página
+
+        |
+
+        Não respire muito forte
+
+    </div>
 
 </div>
 
 </body>
+
 </html>

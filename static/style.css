@@ -1,119 +1,243 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8f8f8;
-    color: #999;
+    background: #e7e7e7;
+    color: #777;
 }
 
-.topo {
-    background-color: #222;
-    color: white;
-    padding: 20px;
+.barra-caotica {
+    height: 35px;
+    background: #111;
+    color: #00ff00;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 11px;
+}
+
+.menu {
+    background: #555;
+    padding: 12px;
     text-align: center;
 }
 
-.topo h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-.progresso {
-    margin-top: 10px;
-    color: #777;
+.menu a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
     font-size: 13px;
 }
 
-.caixa {
-    width: 550px;
-    margin: 50px auto;
-    padding: 35px;
-    background-color: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 15px #ddd;
+.menu a:hover {
+    background: yellow;
+    color: red;
 }
 
-.caixa h2 {
-    color: #777;
+.caixa-principal {
+    width: 700px;
+    margin: 25px auto;
+    padding: 30px;
+    background: white;
+    border: 5px double #888;
+    box-shadow: 0 0 20px #999;
 }
 
-.caixa p {
-    line-height: 1.5;
+.caixa-principal h1 {
+    color: #666;
+    text-align: center;
+    font-size: 32px;
 }
 
-.pequeno {
-    font-size: 12px;
+.caixa-principal h2 {
+    color: #aaa;
+    text-align: center;
+}
+
+.texto-pequeno {
+    font-size: 10px;
     color: #bbb;
 }
 
-.aviso {
-    margin: 25px 0;
-    padding: 15px;
-    background-color: #ffffaa;
-    border: 2px solid #ffcc00;
-    color: #888;
-}
-
-.botao-principal {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #444;
+.alerta-vermelho {
+    background: #ff3333;
     color: white;
-    text-decoration: none;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 4px solid #990000;
+    text-align: center;
     font-weight: bold;
 }
 
-.botao-inutil {
-    margin-left: 20px;
-    padding: 15px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
+.propaganda {
+    background: #ffff00;
+    color: #ff0000;
+    padding: 20px;
+    margin: 20px 0;
+    border: 5px dashed red;
+    text-align: center;
+    font-weight: bold;
 }
 
-label {
+.propaganda button {
+    margin-top: 10px;
+    background: blue;
+    color: yellow;
+    border: 4px solid red;
+    padding: 10px;
+}
+
+.progresso {
+    margin: 25px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.barra {
+    height: 18px;
+    background: #ddd;
+    border: 2px solid #999;
+    margin-top: 8px;
+}
+
+.barra-interna {
+    width: 17%;
+    height: 100%;
+    background: red;
+}
+
+.botao-gigante {
     display: block;
-    margin-top: 22px;
-    color: #aaa;
-    font-size: 14px;
+    width: 80%;
+    margin: 25px auto;
+    padding: 20px;
+    background: #555;
+    color: #eee;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    border: 3px solid #ccc;
+}
+
+.botao-vermelho {
+    display: block;
+    margin: auto;
+    padding: 15px 30px;
+    background: red;
+    color: white;
+    border: 5px solid darkred;
+    font-weight: bold;
+}
+
+.rodape-caotico {
+    margin-top: 40px;
+    padding: 10px;
+    background: #111;
+    color: #555;
+    font-size: 10px;
+    text-align: center;
+}
+
+.titulo-caotico {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background: #ddd;
+    padding: 10px;
+    color: #888;
+    font-weight: bold;
+}
+
+.campo {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-left: 8px solid #ccc;
+}
+
+.campo label,
+.senha-box label {
+    display: block;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.ajuda {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    margin-bottom: 8px;
 }
 
 input,
 select {
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    margin-top: 7px;
-    border: 1px solid #ccc;
+    padding: 13px;
+    border: 2px solid #ccc;
+    background: #fafafa;
 }
 
-.checkbox {
+input:focus,
+select:focus {
+    border-color: red;
+    outline: 3px dotted yellow;
+}
+
+.senha-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #eeeeee;
+    border: 5px dotted #aaa;
+}
+
+.regras-senha {
+    margin-top: 15px;
+    padding: 15px;
+    background: #ffff99;
+    border: 2px solid orange;
     color: #999;
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-.checkbox input {
+.checkbox-caotico {
+    margin-top: 25px;
+    padding: 20px;
+    background: #ddd;
+    color: #888;
+    line-height: 2;
+    border: 3px solid #aaa;
+}
+
+.checkbox-caotico input {
     width: auto;
 }
 
-.regras {
-    margin-top: 10px;
-    background-color: #fafafa;
-    padding: 10px;
-    font-size: 12px;
-}
-
-.erro {
-    background-color: #ffff99;
-    border: 2px solid orange;
+.propaganda-pequena {
+    margin: 20px 0;
     padding: 15px;
-    color: #cc0000;
+    background: #00ffff;
+    color: #ff00ff;
+    border: 5px dotted red;
+    text-align: center;
+    font-weight: bold;
 }
 
-.erro h3 {
-    color: green;
+.propaganda-pequena button {
+    display: block;
+    margin: 10px auto;
+    background: #ff00ff;
+    color: yellow;
+    border: 3px solid blue;
+    padding: 8px;
 }
 
-.botoes {
+.botoes-caoticos {
     margin-top: 35px;
     display: flex;
     justify-content: space-between;
@@ -121,84 +245,114 @@ select {
 }
 
 .cancelar {
-    background-color: red;
+    background: red;
     color: white;
     padding: 18px 25px;
     text-decoration: none;
     font-weight: bold;
+    border: 4px solid darkred;
 }
 
 .avancar {
-    background-color: #ddd;
+    background: #ddd;
     color: #aaa;
-    border: 1px solid #eee;
     padding: 10px 15px;
-    cursor: pointer;
+    border: 1px solid #eee;
 }
 
-.alerta-amarelo {
-    background-color: #ffff99;
-    border: 2px solid #ffcc00;
+.erro {
+    background: #ffff99;
+    border: 4px solid orange;
     padding: 20px;
-    margin: 25px 0;
+    margin-bottom: 25px;
+    color: #cc0000;
 }
 
-.botao-confuso {
-    background-color: #ccc;
+.erro h2 {
+    color: green;
+}
+
+.erro-item {
+    margin: 8px 0;
+    padding: 8px;
+    background: #fff;
+    border-left: 5px solid red;
+}
+
+.links-falsos {
+    margin-top: 35px;
+    padding: 15px;
+    background: #eee;
+    font-size: 11px;
+}
+
+.links-falsos a {
+    margin: 10px;
+    color: #aaa;
+}
+
+.confirmacao-box {
+    margin: 30px 0;
+    padding: 25px;
+    background: #f4f4f4;
+    border: 5px double #aaa;
+    text-align: center;
+}
+
+.checkbox-grande {
     color: #888;
-    border: 1px solid #ddd;
-    padding: 15px 25px;
-    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox-grande input {
+    width: auto;
+}
+
+.botao-final {
+    margin-top: 25px;
+    padding: 18px 35px;
+    background: #ccc;
+    color: #888;
+    border: 3px solid #eee;
+    font-weight: bold;
+}
+
+.botoes-finais {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .voltar {
-    display: block;
-    margin-top: 30px;
-    color: #bbb;
+    color: #aaa;
+    font-size: 12px;
 }
 
 .final {
     text-align: center;
 }
 
-.final h1 {
-    color: green;
-    font-size: 40px;
-}
-
 .trofeu {
-    font-size: 70px;
+    font-size: 60px;
     color: gold;
 }
 
-.resultado {
-    margin: 30px 0;
+.final h1 {
+    color: green;
+    font-size: 45px;
+}
+
+.mensagem-final {
+    padding: 25px;
+    background: #eee;
+    border: 3px solid #ccc;
+}
+
+.estatisticas {
+    margin: 25px 0;
     padding: 20px;
-    background-color: #eee;
+    background: #222;
+    color: #00ff00;
     text-align: left;
-}
-.resumo {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-}
-
-.resumo p {
-    color: #666;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
-}
-
-.resumo strong {
-    color: #444;
-}
-
-.confirmacao .checkbox {
-    color: #777;
-    font-size: 14px;
-}
-
-.confirmacao .checkbox input {
-    width: auto;
+    font-family: monospace;
 }

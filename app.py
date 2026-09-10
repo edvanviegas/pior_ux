@@ -61,45 +61,80 @@ def cadastro():
             erros.append("Você esqueceu de selecionar sua cidade.")
 
         # SENHA DIFÍCIL
-        if not senha:
-            erros.append("A senha não pode ficar vazia.")
+        # SENHA ABSURDAMENTE DIFÍCIL
+if not senha:
+    erros.append("A senha é obrigatória.")
 
-        else:
+else:
+    if len(senha) < 16:
+        erros.append("A senha precisa ter pelo menos 16 caracteres.")
 
-            if len(senha) < 12:
-                erros.append(
-                    "A senha precisa possuir pelo menos 12 caracteres."
-                )
+    if len(senha) > 30:
+        erros.append("A senha não pode ter mais de 30 caracteres.")
 
-            if not any(c.isupper() for c in senha):
-                erros.append(
-                    "A senha precisa possuir uma letra maiúscula."
-                )
+    if not any(c.isupper() for c in senha):
+        erros.append("A senha precisa ter pelo menos 1 letra MAIÚSCULA.")
 
-            if not any(c.islower() for c in senha):
-                erros.append(
-                    "A senha precisa possuir uma letra minúscula."
-                )
+    if not any(c.islower() for c in senha):
+        erros.append("A senha precisa ter pelo menos 1 letra minúscula.")
 
-            if not any(c.isdigit() for c in senha):
-                erros.append(
-                    "A senha precisa possuir um número."
-                )
+    if not any(c.isdigit() for c in senha):
+        erros.append("A senha precisa ter pelo menos 1 número.")
 
-            if not any(c in "!@#$%&*?" for c in senha):
-                erros.append(
-                    "A senha precisa possuir um símbolo especial."
-                )
+    if not any(c in "!@#$%&*?" for c in senha):
+        erros.append("A senha precisa ter pelo menos 1 símbolo especial.")
 
-            if " " in senha:
-                erros.append(
-                    "A senha não pode possuir espaços."
-                )
+    if " " in senha:
+        erros.append("A senha não pode possuir espaços.")
 
-            if senha.lower() == senha:
-                erros.append(
-                    "A senha precisa demonstrar maior diversidade."
-                )
+    if any(c in senha for c in "áéíóúãõâêôç"):
+        erros.append("A senha não pode possuir caracteres acentuados.")
+
+    if senha[0].isdigit():
+        erros.append("A senha não pode começar com número.")
+
+    if senha[-1].isdigit():
+        erros.append("A senha não pode terminar com número.")
+
+    if senha.lower().startswith("senha"):
+        erros.append("A senha não pode começar com a palavra 'senha'.")
+
+    if senha.lower() == senha:
+        erros.append("A senha precisa possuir letras maiúsculas.")
+
+    if senha.upper() == senha:
+        erros.append("A senha precisa possuir letras minúsculas.")
+
+    # Precisa ter pelo menos 2 números
+    if sum(c.isdigit() for c in senha) < 2:
+        erros.append("A senha precisa possuir pelo menos 2 números.")
+
+    # Precisa ter pelo menos 2 símbolos
+    if sum(c in "!@#$%&*?" for c in senha) < 2:
+        erros.append("A senha precisa possuir pelo menos 2 símbolos especiais.")
+
+    # Não pode repetir o mesmo caractere 3 vezes seguidas
+    if any(senha[i] == senha[i+1] == senha[i+2]
+           for i in range(len(senha) - 2)):
+        erros.append("A senha não pode repetir o mesmo caractere 3 vezes seguidas.")
+
+    # Não pode conter sequências óbvias
+    sequencias = [
+        "123", "234", "345", "456", "567",
+        "678", "789", "abc", "bcd", "cde",
+        "qwe", "asd", "zxc"
+    ]
+
+    if any(seq in senha.lower() for seq in sequencias):
+        erros.append("A senha não pode conter sequências óbvias.")
+
+    # Precisa ter pelo menos 4 caracteres diferentes de letras
+    caracteres_especiais = sum(
+        not c.isalnum() for c in senha
+    )
+
+    if caracteres_especiais < 2:
+        erros.append("A senha precisa possuir pelo menos 2 caracteres especiais.")
 
         # Se houver erros, volta para o formulário
         if erros:

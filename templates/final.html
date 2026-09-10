@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <title>Parabéns</title>
+    <title>Fim</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
@@ -14,46 +14,97 @@
 
 <body>
 
-<div class="caixa final">
+
+<div class="barra-caotica">
+
+    <span>🟢 SISTEMA ONLINE</span>
+    <span>STATUS: FINALIZADO</span>
+    <span>ERROS: INDEFINIDOS</span>
+
+</div>
+
+
+<div class="caixa-principal final">
+
 
     <div class="trofeu">
-        ★
-    </div>
 
-    <h1>PARABÉNS!</h1>
-
-    <h2>Você conseguiu.</h2>
-
-    <p>
-        Você chegou ao final da pior experiência
-        de usuário possível.
-    </p>
-
-    <div class="resultado">
-
-        <p>
-            Dificuldade: ██████████ 100%
-        </p>
-
-        <p>
-            Usabilidade: ██░░░░░░░░ 20%
-        </p>
-
-        <p>
-            Sofrimento: ██████████ 100%
-        </p>
+        ★ ★ ★
 
     </div>
 
-    <p class="pequeno">
-        O sistema funcionou. A UX, infelizmente, não.
-    </p>
 
-    <a href="{{ url_for('inicio') }}" class="botao-principal">
-        FAZER NOVAMENTE
+    <h1>
+
+        PARABÉNS!
+
+    </h1>
+
+
+    <h2>
+
+        VOCÊ SOBREVIVEU.
+
+    </h2>
+
+
+    <div class="mensagem-final">
+
+        <p>
+
+            Você conseguiu completar o formulário.
+
+        </p>
+
+        <p>
+
+            Foram necessárias várias decisões ruins,
+            mas o sistema permaneceu funcional.
+
+        </p>
+
+        <strong>
+
+            Você chegou ao final da pior experiência
+            de usuário.
+
+        </strong>
+
+    </div>
+
+
+    <div class="estatisticas">
+
+        <p>
+            UX: █░░░░░░░░░ 10%
+        </p>
+
+        <p>
+            UI: ██░░░░░░░░ 20%
+        </p>
+
+        <p>
+            Confusão: ██████████ 100%
+        </p>
+
+        <p>
+            Botões desnecessários: ██████████ 100%
+        </p>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('inicio') }}"
+        class="botao-gigante">
+
+        FAZER TUDO NOVAMENTE
+
     </a>
+
 
 </div>
 
 </body>
+
 </html>

@@ -2,151 +2,366 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Cadastro</title>
+
+    <title>Cadastro - Página 2</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 
 <body>
 
-<div class="topo">
 
-    <h1>CADASTRO</h1>
+<div class="barra-caotica">
 
-    <div class="progresso">
-        Etapa 2 de 4
-    </div>
+    <span>🔴 ONLINE</span>
+    <span>ETAPA 2</span>
+    <span>STATUS: CONFUSO</span>
+    <span>SEGURANÇA: 37%</span>
 
 </div>
 
-<div class="caixa">
 
-    <h2>Informações extremamente necessárias</h2>
+<div class="menu">
+
+    <a href="#">MENU</a>
+    <a href="#">VOLTAR</a>
+    <a href="#">AVANÇAR</a>
+    <a href="#">NÃO CLIQUE</a>
+    <a href="#">SUPORTE</a>
+    <a href="#">SUPORTE 2</a>
+
+</div>
+
+
+<div class="caixa-principal">
+
+
+    <div class="titulo-caotico">
+
+        <span>CADASTRO</span>
+
+        <span>CADASTRO 2</span>
+
+        <span>PARTE FINAL</span>
+
+    </div>
+
+
+    <div class="alerta-vermelho">
+
+        ⚠ NÃO ATUALIZE ESTA PÁGINA ⚠
+
+        <br>
+
+        ⚠ NÃO CLIQUE EM VOLTAR ⚠
+
+        <br>
+
+        ⚠ NÃO CONFIE NAS MENSAGENS ⚠
+
+    </div>
+
 
     {% if erros %}
 
         <div class="erro">
 
-            <h3>SUCESSO!</h3>
+            <h2>
+                ✓ SUCESSO!
+            </h2>
 
             <p>
-                Seu cadastro apresentou alguns pequenos problemas:
+                Seu formulário foi processado incorretamente.
             </p>
 
-            <ul>
+            <p>
+                Foram encontrados os seguintes pequenos problemas:
+            </p>
 
-                {% for erro in erros %}
-                    <li>{{ erro }}</li>
-                {% endfor %}
+            {% for erro in erros %}
 
-            </ul>
+                <div class="erro-item">
+
+                    ❌ {{ erro }}
+
+                </div>
+
+            {% endfor %}
 
         </div>
 
     {% endif %}
 
-    <form method="POST" onsubmit="return verificarFormulario()">
 
-        <label>
-            Nome completo que representa você:
-        </label>
+    <form method="POST">
 
-        <input
-            type="text"
-            name="nome"
-            value="{{ nome or '' }}"
-            placeholder="Digite aqui...">
 
-        <label>
-            Endereço eletrônico digital:
-        </label>
+        <div class="campo">
 
-        <input
-            type="email"
-            name="email"
-            value="{{ email or '' }}"
-            placeholder="exemplo@exemplo.com">
+            <label>
 
-        <label>
-            Idade aproximada:
-        </label>
+                Nome:
 
-        <input
-            type="number"
-            name="idade"
-            value="{{ idade or '' }}">
+            </label>
 
-        <label>
-            Cidade onde você atualmente se encontra:
-        </label>
+            <span class="ajuda">
 
-        <select name="cidade">
+                (Nome completo, apelido, nome do cachorro,
+                qualquer coisa serve)
 
-            <option value="">Escolha uma opção</option>
-            <option value="Ariquemes">Ariquemes</option>
-            <option value="Porto Velho">Porto Velho</option>
-            <option value="Ji-Paraná">Ji-Paraná</option>
-            <option value="Outra">Outra</option>
+            </span>
 
-        </select>
+            <input
+                type="text"
+                name="nome"
+                value="{{ nome or '' }}"
+                placeholder="NÃO DIGITE AQUI">
 
-        <label>
-            Senha secreta pública:
-        </label>
+        </div>
 
-        <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder="Não compartilhe sua senha">
 
-        <div class="regras">
+        <div class="campo">
 
-    <p>A senha deve:</p>
+            <label>
 
-    <ul>
-        <li>Ter pelo menos 10 caracteres</li>
-        <li>Ter uma letra MAIÚSCULA</li>
-        <li>Ter uma letra minúscula</li>
-        <li>Ter um número</li>
-        <li>Ter um caractere especial</li>
-        <li>Não utilizar espaços</li>
-    </ul>
+                E-mail eletrônico:
 
-    <p>
-        Exemplo de senha válida:
-        <strong>Flask@2026</strong>
-    </p>
+            </label>
+
+            <span class="ajuda">
+
+                (Precisamos disso, mas não sabemos exatamente para quê)
+
+            </span>
+
+            <input
+                type="email"
+                name="email"
+                value="{{ email or '' }}"
+                placeholder="email@exemplo.com">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+
+                Idade:
+
+            </label>
+
+            <span class="ajuda">
+
+                (Somente números. Exceto quando não.)
+
+            </span>
+
+            <input
+                type="number"
+                name="idade"
+                value="{{ idade or '' }}"
+                min="1"
+                max="120">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>
+
+                Cidade:
+
+            </label>
+
+            <select name="cidade">
+
+                <option value="">
+                    NÃO SELECIONE NADA
+                </option>
+
+                <option value="Ariquemes">
+                    Ariquemes
+                </option>
+
+                <option value="Porto Velho">
+                    Porto Velho
+                </option>
+
+                <option value="Ji-Paraná">
+                    Ji-Paraná
+                </option>
+
+                <option value="Outra">
+                    Outra
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="senha-box">
+
+            <label>
+
+                SENHA DEFINITIVAMENTE SECRETA:
+
+            </label>
+
+            <input
+                type="password"
+                name="senha"
+                id="senha"
+                placeholder="Digite uma senha extremamente simples">
+
+            <div class="regras-senha">
+
+    <strong>REGRAS DA SENHA DEFINITIVAMENTE DEFINITIVA:</strong>
+
+    <br><br>
+
+    ❌ Mínimo: 16 caracteres
+    <br>
+
+    ❌ Máximo: 30 caracteres
+    <br>
+
+    ❌ Pelo menos 1 MAIÚSCULA
+    <br>
+
+    ❌ Pelo menos 1 minúscula
+    <br>
+
+    ❌ Pelo menos 2 números
+    <br>
+
+    ❌ Pelo menos 2 símbolos especiais
+    <br>
+
+    ❌ Não pode ter espaços
+    <br>
+
+    ❌ Não pode começar com número
+    <br>
+
+    ❌ Não pode terminar com número
+    <br>
+
+    ❌ Não pode começar com "senha"
+    <br>
+
+    ❌ Não pode conter acentos
+    <br>
+
+    ❌ Não pode repetir 3 caracteres seguidos
+    <br>
+
+    ❌ Não pode conter sequências como 123, abc ou qwe
+    <br>
+
+    ❌ Precisa possuir caracteres diferentes
+    <br>
+
+    ❌ O sistema provavelmente inventará outra regra depois
+    <br>
+
+    ❌ Boa sorte
 
 </div>
 
-        <label class="checkbox">
+        <div class="checkbox-caotico">
 
-            <input type="checkbox" id="termos">
+            <input type="checkbox">
 
-            Eu li os termos que não li.
+            Li os termos.
 
-        </label>
+            <br>
 
-        <div class="botoes">
+            <input type="checkbox">
 
-            <a href="{{ url_for('inicio') }}" class="cancelar">
-                CANCELAR
-            </a>
+            Li que deveria ter lido os termos.
 
-            <button type="submit" class="avancar">
-                continuar talvez
+            <br>
+
+            <input type="checkbox">
+
+            Aceito não saber o que estou aceitando.
+
+            <br>
+
+            <input type="checkbox">
+
+            Concordo.
+
+        </div>
+
+
+        <div class="propaganda-pequena">
+
+            🎁 OFERTA ESPECIAL 🎁
+
+            <br>
+
+            Você ganhou absolutamente nada!
+
+            <button type="button"
+                    onclick="alert('Nada mesmo.')">
+
+                RESGATAR
+
             </button>
 
         </div>
 
+
+        <div class="botoes-caoticos">
+
+            <a
+                href="{{ url_for('inicio') }}"
+                class="cancelar">
+
+                CANCELAR
+
+            </a>
+
+
+            <button
+                type="submit"
+                class="avancar">
+
+                NÃO SALVAR E CONTINUAR
+
+            </button>
+
+        </div>
+
+
     </form>
+
+
+    <div class="links-falsos">
+
+        Precisa de ajuda?
+
+        <a href="#">Clique aqui</a>
+
+        <a href="#">Clique aqui também</a>
+
+        <a href="#">Não clique aqui</a>
+
+        <a href="#">Ajuda verdadeira</a>
+
+    </div>
+
 
 </div>
 
 </body>
+
 </html>

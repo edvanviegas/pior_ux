@@ -2,92 +2,158 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <title>Confirmação</title>
+    <title>Confirmação Final</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<div class="topo">
 
-    <h1>CONFIRMAÇÃO</h1>
+<div class="barra-caotica">
 
-    <div class="progresso">
-        Etapa 3 de 4
-    </div>
+    <span>🔴 SISTEMA ONLINE</span>
+    <span>ÚLTIMA ETAPA</span>
+    <span>98% CONCLUÍDO</span>
+    <span>OU NÃO</span>
 
 </div>
 
-<div class="caixa confirmacao">
 
-    <h2>Confira seus dados</h2>
+<div class="menu">
 
-    <p>
-        Antes de continuar, veja se alguma informação está errada.
-    </p>
+    <a href="#">INÍCIO</a>
+    <a href="#">VOLTAR</a>
+    <a href="#">AJUDA</a>
+    <a href="#">ERROS</a>
+    <a href="#">SAIR</a>
 
-    <div class="resumo">
+</div>
 
-        <p>
-            <strong>Nome:</strong>
-            {{ cadastro.nome }}
-        </p>
 
-        <p>
-            <strong>E-mail:</strong>
-            {{ cadastro.email }}
-        </p>
+<div class="caixa-principal">
 
-        <p>
-            <strong>Idade:</strong>
-            {{ cadastro.idade }}
-        </p>
 
-        <p>
-            <strong>Cidade:</strong>
-            {{ cadastro.cidade }}
-        </p>
+    <h1>
 
-    </div>
+        CONFIRMAÇÃO FINAL FINAL DEFINITIVA
 
-    <div class="alerta-amarelo">
+    </h1>
 
-        <strong>IMPORTANTE:</strong>
 
-        <p>
-            Se alguma informação estiver errada,
-            você pode voltar e corrigir.
-        </p>
+    {% if erro %}
 
-    </div>
+        <div class="erro">
 
-    <form method="POST">
+            ❌ {{ erro }}
 
-        <label class="checkbox">
+        </div>
 
-            <input type="checkbox" required>
+    {% endif %}
 
-            Confirmo que os dados estão corretos.
 
-        </label>
+    <div class="alerta-vermelho">
+
+        ATENÇÃO!
+
+        <br><br>
+
+        Você chegou até aqui.
 
         <br>
 
-        <button type="submit" class="botao-confuso">
-            NÃO CLIQUE AQUI
+        Isso significa que alguma coisa funcionou.
+
+        <br><br>
+
+        Não estrague agora.
+
+    </div>
+
+
+    <div class="confirmacao-box">
+
+        <h2>
+
+            Você realmente deseja continuar?
+
+        </h2>
+
+
+        <p>
+
+            Esta ação pode ou não ser permanente.
+
+        </p>
+
+
+        <p>
+
+            Não temos certeza.
+
+        </p>
+
+
+        <form method="POST">
+
+            <label class="checkbox-grande">
+
+                <input
+                    type="checkbox"
+                    name="confirmado">
+
+                Confirmo que desejo continuar,
+                mesmo sem saber exatamente o que estou confirmando.
+
+            </label>
+
+
+            <br>
+
+
+            <button
+                type="submit"
+                class="botao-final">
+
+                NÃO CANCELAR
+
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <div class="botoes-finais">
+
+        <a
+            href="{{ url_for('cadastro') }}"
+            class="voltar">
+
+            VOLTAR E PREENCHER NOVAMENTE
+
+        </a>
+
+
+        <button
+            onclick="alert('Você quase conseguiu cancelar.')"
+            class="cancelar">
+
+            CANCELAR
+
         </button>
 
-    </form>
+    </div>
 
-    <a href="{{ url_for('cadastro') }}" class="voltar">
-        ← Voltar e corrigir os dados
-    </a>
 
 </div>
 
 </body>
+
 </html>
